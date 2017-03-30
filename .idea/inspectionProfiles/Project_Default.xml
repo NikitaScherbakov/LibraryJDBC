@@ -1,0 +1,9 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <description>&lt;p&gt;
+    This plugin provides both real-time and on-demand scanning
+    of Java files with CheckStyle 7.3 from within IDEA.
+&lt;/p&gt;</description>
+    <option name="myName" value="Project Default" />
+  </profile>
+</component>
