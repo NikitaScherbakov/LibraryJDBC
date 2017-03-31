@@ -1,20 +1,27 @@
 package model;
 
-public class Library {
+public class Book {
     private int id;
     private String title;
     private String author;
-    private String inStore;
+    private float price;
 
-    public Library(){
-
+    public Book() {
     }
 
-    public Library(int id, String title, String author, String inStore){
+    public Book(int id) {
         this.id = id;
+    }
+
+    public Book(int id, String title, String author, float price) {
+        this(title, author, price);
+        this.id = id;
+    }
+
+    public Book(String title, String author, float price) {
         this.title = title;
         this.author = author;
-        this.inStore = inStore;
+        this.price = price;
     }
 
     public int getId() {
@@ -41,11 +48,11 @@ public class Library {
         this.author = author;
     }
 
-    public String getInStore() {
-        return inStore;
+    public float getPrice() {
+        return price;
     }
 
-    public void setInStore(String inStore) {
-        this.inStore = inStore;
+    public void setPrice(float price) {
+        this.price = price;
     }
 }
