@@ -3,17 +3,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Books Store Application</title>
+    <title>Library app</title>
 </head>
 <body>
 <%--TODO: fix center tag--%>
 <center>
-    <h1>Books Management</h1>
+    <h1>Library management</h1>
     <h2>
-        <a href="/new">Add New Book</a>
+        <div itemscope itemtype="http://schema.org/AddAction">
+            <a href="/new" itemprop = "url">Add New Book</a>
+        </div>
         &nbsp;&nbsp;&nbsp;
-        <a href="/list">List All Books</a>
-
+        <div itemscope itemtype="http://schema.org/Action">
+            <a href="/list" itemprop="url">List All Books</a>
+        </div>
     </h2>
 </center>
 <div align="center">
@@ -26,19 +29,25 @@
             <table border="1" cellpadding="5">
                 <caption>
                     <h2>
-                        <c:if test="${book != null}">
-                            Edit Book
-                        </c:if>
-                        <c:if test="${book == null}">
-                            Add New Book
-                        </c:if>
+                        <div itemscope itemtype="http://schema.org/UpdateAction">
+                            <c:if test="${book != null}">
+                                Edit Book
+                            </c:if>
+                        </div>
+                        <div itemscope itemtype="http://schema.org/AddAction">
+                            <c:if test="${book == null}">
+                                Add New Book
+                            </c:if>
+                        </div>
                     </h2>
                 </caption>
                 <c:if test="${book != null}">
                     <input type="hidden" name="id" value="<c:out value='${book.id}' />" />
                 </c:if>
                 <tr>
-                    <th>Title: </th>
+                    <div itemscope itemtype="http://schema.org/Text">
+                        <th>Title: </th>
+                    </div>
                     <td>
                         <input type="text" name="title" size="45"
                                value="<c:out value='${book.title}' />"
@@ -46,7 +55,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>Author: </th>
+                    <div itemscope itemtype="http://schema.org/Person">
+                        <th>Author: </th>
+                    </div>
                     <td>
                         <input type="text" name="author" size="45"
                                value="<c:out value='${book.author}' />"
@@ -54,10 +65,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>Price: </th>
+                    <div itemscope itemtype="http://schema.org/Text">
+                        <th>Genre: </th>
+                    </div>
                     <td>
-                        <input type="text" name="price" size="5"
-                               value="<c:out value='${book.price}' />"
+                        <input type="text" name="genre" size="45"
+                               value="<c:out value='${book.genre}' />"
                         />
                     </td>
                 </tr>

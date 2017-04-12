@@ -1,57 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="bookstore@localhost">
+<dataSource name="library@localhost">
   <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
     <root id="1"/>
-    <schema id="2" parent="1" name="bookstore">
+    <schema id="2" parent="1" name="library">
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
     <schema id="3" parent="1" name="bd_libr"/>
-    <schema id="4" parent="1" name="information_schema"/>
-    <schema id="5" parent="1" name="mysql"/>
-    <schema id="6" parent="1" name="performance_schema"/>
-    <schema id="7" parent="1" name="sys"/>
-    <table id="8" parent="2" name="book"/>
-    <column id="9" parent="8" name="book_id">
+    <schema id="4" parent="1" name="bookstore"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="sys"/>
+    <table id="9" parent="2" name="book"/>
+    <column id="10" parent="9" name="book_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="10" parent="8" name="title">
+    <column id="11" parent="9" name="book_title">
       <Position>2</Position>
       <DataType>varchar(128)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="11" parent="8" name="author">
+    <column id="12" parent="9" name="book_author">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="12" parent="8" name="price">
+    <column id="13" parent="9" name="book_genre">
       <Position>4</Position>
-      <DataType>float|0</DataType>
+      <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="13" parent="8" name="book_id_UNIQUE">
+    <index id="14" parent="9" name="book_id_UNIQUE">
       <ColNames>book_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="14" parent="8" name="title_UNIQUE">
-      <ColNames>title</ColNames>
+    <index id="15" parent="9" name="title_UNIQUE">
+      <ColNames>book_title</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="15" parent="8" name="PRIMARY">
+    <key id="16" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>book_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="16" parent="8" name="book_id_UNIQUE">
+    <key id="17" parent="9" name="book_id_UNIQUE">
       <ColNames>book_id</ColNames>
       <UnderlyingIndexName>book_id_UNIQUE</UnderlyingIndexName>
     </key>
-    <key id="17" parent="8" name="title_UNIQUE">
-      <ColNames>title</ColNames>
+    <key id="18" parent="9" name="title_UNIQUE">
+      <ColNames>book_title</ColNames>
       <UnderlyingIndexName>title_UNIQUE</UnderlyingIndexName>
     </key>
   </database-model>

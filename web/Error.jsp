@@ -9,8 +9,10 @@
 <body>
 <%--TODO: fix center tag--%>
 <center>
-    <h1>Error</h1>
-    <h2><%=exception.getMessage() %><br/> </h2>
+    <div itemscope itemtype="http://schema.org/SendAction">
+        <h1>Error</h1>
+        <h2><%=exception.getMessage() %><br/> </h2>
+    </div>
 </center>
 </body>
 </html>

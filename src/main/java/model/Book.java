@@ -1,10 +1,14 @@
 package model;
 
-public class Book {
+import java.io.Serializable;
+
+public class Book implements Serializable{
+    private static final long serialVersionUID = 6297385302078200511L;
+
     private int id;
     private String title;
     private String author;
-    private float price;
+    private String genre;
 
     public Book() {
     }
@@ -13,15 +17,15 @@ public class Book {
         this.id = id;
     }
 
-    public Book(int id, String title, String author, float price) {
-        this(title, author, price);
+    public Book(int id, String title, String author, String genre) {
+        this(title, author, genre);
         this.id = id;
     }
 
-    public Book(String title, String author, float price) {
+    public Book(String title, String author, String genre) {
         this.title = title;
         this.author = author;
-        this.price = price;
+        this.genre = genre;
     }
 
     public int getId() {
@@ -48,11 +52,11 @@ public class Book {
         this.author = author;
     }
 
-    public float getPrice() {
-        return price;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setGenre(float count) {
+        this.genre = genre;
     }
 }
