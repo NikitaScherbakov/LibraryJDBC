@@ -11,6 +11,12 @@ import java.sql.SQLException;
 
 @WebListener
 public class AppContextListener implements ServletContextListener {
+
+    /** Initializes the database connection, and stores it
+     * in the servlet context
+     *
+     * @param servletContextEvent - The triggered event. It cannot be null
+     */
     public void contextInitialized(ServletContextEvent servletContextEvent){
         ServletContext servletContext = servletContextEvent.getServletContext();
 
@@ -22,13 +28,15 @@ public class AppContextListener implements ServletContextListener {
             DBConnection connection = new DBConnection(dbURL, user, password);
             servletContext.setAttribute("DBConnection", connection.getConnection());
             System.out.println("DB Connection initialized successfully");
-        } catch (ClassNotFoundException e){
-            e.printStackTrace();
-        } catch (SQLException e){
+        } catch (ClassNotFoundException | SQLException e){
             e.printStackTrace();
         }
     }
 
+    /** Close the database connection.
+     *
+     * @param servletContextEvent - The triggered event. It cannot be null.
+     */
     @Override
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
         Connection connection = (Connection) servletContextEvent.getServletContext().getAttribute("DBConnection");

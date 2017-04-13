@@ -17,18 +17,13 @@ import java.util.List;
 public class ControllerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public void init() {
-        String jdbcURL = getServletContext().getInitParameter("jdbcURL");
-        String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
-        String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
-
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doGet(request, response);
-    }
-
+    /** Called by the server (via the service method) to allow a servlet to handle a GET request. Chooses what function need to do.
+     *
+     * @param request - object that contains the request the client has made of the servlet
+     * @param response - object that contains the response the servlet sends to the client
+     * @throws ServletException - if the request for the GET could not be handled
+     * @throws IOException - if an input or output error is detected when the servlet handles the GET request
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getServletPath();
@@ -58,6 +53,19 @@ public class ControllerServlet extends HttpServlet {
         }
     }
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
+    }
+
+    /** Perform the transaction with database to show all books in it
+     *
+     * @param request - object that contains the request the client has made of the servlet
+     * @param response - object that contains the response the servlet sends to the client
+     * @throws ServletException - if the request for the GET could not be handled
+     * @throws IOException - if an input or output error is detected when the servlet handles the GET request
+     * @throws SQLException - if the transaction to database is failed
+     */
     private void listBook(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<Book> listBook = new ArrayList<>();
@@ -85,12 +93,27 @@ public class ControllerServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    /** Forward to the view of adding new book window
+     *
+     * @param request - object that contains the request the client has made of the servlet
+     * @param response - object that contains the response the servlet sends to the client
+     * @throws ServletException - if the request for the GET could not be handled
+     * @throws IOException - if an input or output error is detected when the servlet handles the GET request
+     */
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("bookForm.jsp");
         dispatcher.forward(request, response);
     }
 
+    /** Forward to the view of editing book window
+     *
+     * @param request - object that contains the request the client has made of the servlet
+     * @param response - object that contains the response the servlet sends to the client
+     * @throws ServletException - if the request for the GET could not be handled
+     * @throws IOException - if an input or output error is detected when the servlet handles the GET request
+     * @throws SQLException - if the transaction to database is failed
+     */
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -101,6 +124,13 @@ public class ControllerServlet extends HttpServlet {
 
     }
 
+    /** Perform the transaction with database to add new book in it
+     *
+     * @param request - object that contains the request the client has made of the servlet
+     * @param response - object that contains the response the servlet sends to the client
+     * @throws SQLException - if the transaction to database is failed
+     * @throws IOException - if an input or output error is detected when the servlet handles the GET request
+     */
     private void insertBook(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         String title = request.getParameter("title");
@@ -125,6 +155,13 @@ public class ControllerServlet extends HttpServlet {
         //} else response.sendRedirect("Error.jsp");
     }
 
+    /** Perform the transaction with database to edit information about book in it
+     *
+     * @param request - object that contains the request the client has made of the servlet
+     * @param response - object that contains the response the servlet sends to the client
+     * @throws SQLException - if the transaction to database is failed
+     * @throws IOException - if an input or output error is detected when the servlet handles the GET request
+     */
     private void updateBook(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -148,6 +185,13 @@ public class ControllerServlet extends HttpServlet {
         response.sendRedirect("list");
     }
 
+    /** Perform the transaction with database to delete book in it
+     *
+     * @param request - object that contains the request the client has made of the servlet
+     * @param response - object that contains the response the servlet sends to the client
+     * @throws SQLException - if the transaction to database is failed
+     * @throws IOException - if an input or output error is detected when the servlet handles the GET request
+     */
     private void deleteBook(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -164,6 +208,12 @@ public class ControllerServlet extends HttpServlet {
         response.sendRedirect("list");
     }
 
+    /** Perform the transaction with database to get the information about the definite book from it
+     *
+     * @param id - id of book in table
+     * @return - the Book object
+     * @throws SQLException - if the transaction to database is failed
+     */
     public Book getBook(int id) throws SQLException {
         Book book = null;
         String sql = "SELECT * FROM book WHERE book_id = ?";
