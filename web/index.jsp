@@ -22,20 +22,14 @@
   <table border="1" cellpadding="5">
     <caption><h2>List of Books</h2></caption>
     <tr>
-      <div itemscope itemtype=" http://schema.org/Integer">
-        <th>ID</th>
-      </div>
-      <div itemscope itemtype="http://schema.org/Text">
-        <th>Title</th>
-      </div>
-      <div itemscope itemtype="http://schema.org/Person">
-        <th>Author</th>
-      </div>
-      <div itemscope itemtype="http://schema.org/Text">
-        <th>Genre</th>
+      <div itemscope itemtype=" http://schema.org/Book">
+        <th itemprop = "isbn">ID</th>
+        <th itemprop = "bookEdition">Title</th>
+        <th itemprop = "illustrator">Author</th>
+        <th itemprop = "bookFormat">Genre</th>
       </div>
       <div itemscope itemtype="http://schema.org/UpdateAction">
-        <th>Actions</th>
+        <th itemprop="instrument">Actions</th>
       </div>
     </tr>
     <c:forEach var="book" items="${listBook}">

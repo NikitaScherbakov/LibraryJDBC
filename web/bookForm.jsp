@@ -45,8 +45,8 @@
                     <input type="hidden" name="id" value="<c:out value='${book.id}' />" />
                 </c:if>
                 <tr>
-                    <div itemscope itemtype="http://schema.org/Text">
-                        <th>Title: </th>
+                    <div itemscope itemtype="http://schema.org/Book">
+                        <th itemprop="bookEdition">Title: </th>
                     </div>
                     <td>
                         <input type="text" name="title" size="45"
@@ -55,8 +55,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <div itemscope itemtype="http://schema.org/Person">
-                        <th>Author: </th>
+                    <div itemscope itemtype="http://schema.org/Book">
+                        <th itemprop="illustrator">Author: </th>
                     </div>
                     <td>
                         <input type="text" name="author" size="45"
@@ -65,8 +65,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <div itemscope itemtype="http://schema.org/Text">
-                        <th>Genre: </th>
+                    <div itemscope itemtype="http://schema.org/Book">
+                        <th itemprop="bookFormat">Genre: </th>
                     </div>
                     <td>
                         <input type="text" name="genre" size="45"
