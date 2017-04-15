@@ -46,7 +46,6 @@ public class ControllerServlet extends HttpServlet {
 
             } else {
                 listBook(request, response);
-
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
