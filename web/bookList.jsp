@@ -40,11 +40,11 @@
                 <td><c:out value="${book.genre}" /></td>
                 <td>
                     <div itemscope itemtype="http://schema.org/UpdateAction" >
-                        <a href="/edit?id=<c:out value='${book.id}' />">Edit</a>
+                        <a href="/update?id=<c:out value='${book.id}' />" itemprop = "url">Edit</a>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <div itemscope itemtype="http://schema.org/DeleteAction">
-                        <a href="/delete?id=<c:out value='${book.id}' />">Delete</a>
+                        <a href="/delete?id=<c:out value='${book.id}' />" itemprop = "url">Delete</a>
                     </div>
                 </td>
             </tr>
