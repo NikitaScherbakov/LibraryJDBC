@@ -21,16 +21,15 @@
 <div align="center">
     <table border="1" cellpadding="5">
         <caption><h2>List of Books</h2></caption>
-        <tr>
-            <div itemscope itemtype=" http://schema.org/Book">
-                <th itemprop = "isbn">ID</th>
-                <th itemprop = "bookEdition">Title</th>
-                <th itemprop = "illustrator">Author</th>
-                <th itemprop = "bookFormat">Genre</th>
-            </div>
-            <div itemscope itemtype="http://schema.org/UpdateAction">
-                <th itemprop="instrument">Actions</th>
-            </div>
+        <tr itemscope itemtype=" http://schema.org/Book">
+            <th itemprop = "isbn">ID</th>
+            <th itemprop = "bookEdition">Title</th>
+            <th itemprop = "illustrator">Author</th>
+            <th itemprop = "bookFormat">Genre</th>
+        </tr>
+        <tr itemscope itemtype="http://schema.org/UpdateAction">
+            <th itemprop="instrument">Actions</th>
+        </tr>
         </tr>
         <c:forEach var="book" items="${listBook}">
             <tr>

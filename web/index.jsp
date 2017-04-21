@@ -13,7 +13,7 @@
           <a href="/new" itemprop = "url">Add New Book</a>
       </div>
       &nbsp;&nbsp;&nbsp;
-      <div itemscope itemtype="http://schema.org/Action">
+      <div itemscope itemtype="http://schema.org/ViewAction">
           <a href="/list" itemprop="url">List All Books</a>
       </div>
   </h2>
@@ -21,23 +21,19 @@
 <div align="center">
   <table border="1" cellpadding="5">
     <caption><h2>List of Books</h2></caption>
-    <tr>
-      <div itemscope itemtype=" http://schema.org/Book">
-        <th itemprop = "isbn">ID</th>
-        <th itemprop = "bookEdition">Title</th>
-        <th itemprop = "illustrator">Author</th>
-        <th itemprop = "bookFormat">Genre</th>
-      </div>
-      <div itemscope itemtype="http://schema.org/UpdateAction">
-        <th itemprop="instrument">Actions</th>
-      </div>
-    </tr>
-    <c:forEach var="book" items="${listBook}">
       <tr>
-        <td><c:out value="${book.id}" /></td>
-        <td><c:out value="${book.title}" /></td>
-        <td><c:out value="${book.author}" /></td>
-        <td><c:out value="${book.genre}" /></td>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+          <th>Actions</th>
+      </tr>
+    <c:forEach var="book" items="${listBook}">
+      <tr itemscope itemtype="http://schema.org/Book">
+        <td itemprop = "identifier"><c:out value="${book.id}" /></td>
+        <td itemprop = "name"><c:out value="${book.title}" /></td>
+        <td itemprop = "author"><c:out value="${book.author}" /></td>
+        <td itemprop = "genre"><c:out value="${book.genre}" /></td>
         <td>
           <div itemscope itemtype="http://schema.org/UpdateAction" >
               <a href="/update?id=<c:out value='${book.id}' />" itemprop = "url">Edit</a>
