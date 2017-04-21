@@ -56,7 +56,7 @@ public class Book implements Serializable{
         return genre;
     }
 
-    public void setGenre(float count) {
+    public void setGenre(String genre) {
         this.genre = genre;
     }
 }

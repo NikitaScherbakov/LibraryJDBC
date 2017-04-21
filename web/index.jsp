@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Books Store Application</title>
+  <title>Library Application</title>
 </head>
 <body>
 <%--TODO: fix canter tag--%>

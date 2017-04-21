@@ -13,7 +13,7 @@ public interface BookRepo {
      * @param book - inserted book
      * @throws SQLException - if an input or output error is detected
      */
-    void insertBook(Connection connection, Book book) throws SQLException;
+    boolean insertBook(Connection connection, Book book) throws SQLException;
 
     /**
      * Perform the transaction with database to show all books in it
@@ -29,7 +29,7 @@ public interface BookRepo {
      * @param book - deleted book
      * @throws SQLException - if an input or output error is detected
      */
-    void deleteBook(Connection connection, Book book) throws SQLException;
+    boolean deleteBook(Connection connection, Book book) throws SQLException;
 
     /**
      * Perform the transaction with database to update information about book in it
@@ -37,7 +37,7 @@ public interface BookRepo {
      * @param book - updated book
      * @throws SQLException - if an input or output error is detected
      */
-    void updateBook(Connection connection, Book book) throws SQLException;
+    boolean updateBook(Connection connection, Book book) throws SQLException;
 
     /**
      * Perform the transaction with database to get the information about the definite book from it

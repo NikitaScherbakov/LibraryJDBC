@@ -2,13 +2,14 @@ package utils;
 
 import model.Book;
 
+import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookRepoImpl implements BookRepo {
+public class BookRepoImpl implements BookRepo, Serializable {
 
-    public void insertBook(Connection connection, Book book) throws SQLException {
+    public boolean insertBook(Connection connection, Book book) throws SQLException {
         String sql = "INSERT INTO book (book_title, book_author, book_genre) VALUES (?, ?, ?)";
 
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -16,8 +17,9 @@ public class BookRepoImpl implements BookRepo {
         statement.setString(2, book.getAuthor());
         statement.setString(3, book.getGenre());
 
-        statement.executeUpdate();
+        boolean rowInserted = statement.executeUpdate() > 0;
         statement.close();
+        return rowInserted;
     }
 
     public List<Book> listAllBooks(Connection connection) throws SQLException {
@@ -46,19 +48,19 @@ public class BookRepoImpl implements BookRepo {
         return listBook;
     }
 
-    public void deleteBook(Connection connection, Book book) throws SQLException {
+    public boolean deleteBook(Connection connection, Book book) throws SQLException {
         String sql = "DELETE FROM book where book_id = ?";
 
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, book.getId());
 
-        statement.executeUpdate();
+        boolean rowInserted = statement.executeUpdate() > 0;
         statement.close();
-
+        return rowInserted;
     }
 
-    public void updateBook(Connection connection, Book book) throws SQLException {
+    public boolean updateBook(Connection connection, Book book) throws SQLException {
         String sql = "UPDATE book SET book_title = ?, book_author = ?, book_genre = ?";
         sql += " WHERE book_id = ?";
 
@@ -68,9 +70,9 @@ public class BookRepoImpl implements BookRepo {
         statement.setString(3, book.getGenre());
         statement.setInt(4, book.getId());
 
-        statement.executeUpdate();
+        boolean rowInserted = statement.executeUpdate() > 0;
         statement.close();
-
+        return rowInserted;
     }
 
     public Book getBook(Connection connection, int id) throws SQLException {
