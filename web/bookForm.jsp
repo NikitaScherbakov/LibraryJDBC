@@ -11,11 +11,11 @@
     <h1>Library management</h1>
     <h2>
         <div itemscope itemtype="http://schema.org/AddAction">
-            <a href="/new" itemprop = "url">Add New Book</a>
+            <a href="${pageContext.request.contextPath}/new" itemprop = "url">Add New Book</a>
         </div>
         &nbsp;&nbsp;&nbsp;
         <div itemscope itemtype="http://schema.org/Action">
-            <a href="/list" itemprop="url">List All Books</a>
+            <a href="${pageContext.request.contextPath}/list" itemprop="url">List All Books</a>
         </div>
     </h2>
 </center>

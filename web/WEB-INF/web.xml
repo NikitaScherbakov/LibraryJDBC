@@ -21,16 +21,6 @@
         <param-value>1111</param-value>
     </context-param>
 
-    <servlet>
-        <servlet-name>ControllerServlet</servlet-name>
-        <servlet-class>controller.ControllerServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ControllerServlet</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
         <location>/Error.jsp</location>

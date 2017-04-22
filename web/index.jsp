@@ -10,11 +10,11 @@
   <h1>Library</h1>
   <h2>
       <div itemscope itemtype="http://schema.org/AddAction">
-          <a href="/new" itemprop = "url">Add New Book</a>
+          <a href="${pageContext.request.contextPath}/new" itemprop = "url">Add New Book</a>
       </div>
       &nbsp;&nbsp;&nbsp;
       <div itemscope itemtype="http://schema.org/ViewAction">
-          <a href="/list" itemprop="url">List All Books</a>
+          <a href="${pageContext.request.contextPath}/list" itemprop="url">List All Books</a>
       </div>
   </h2>
 </center>
@@ -36,11 +36,11 @@
         <td itemprop = "genre"><c:out value="${book.genre}" /></td>
         <td>
           <div itemscope itemtype="http://schema.org/UpdateAction" >
-              <a href="/update?id=<c:out value='${book.id}' />" itemprop = "url">Edit</a>
+              <a href="${pageContext.request.contextPath}/update?id=<c:out value='${book.id}' />" itemprop = "url">Edit</a>
           </div>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <div itemscope itemtype="http://schema.org/DeleteAction">
-              <a href="/delete?id=<c:out value='${book.id}' />" itemprop = "url">Delete</a>
+              <a href="${pageContext.request.contextPath}/delete?id=<c:out value='${book.id}' />" itemprop = "url">Delete</a>
           </div>
         </td>
       </tr>

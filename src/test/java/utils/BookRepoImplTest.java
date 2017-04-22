@@ -63,6 +63,7 @@ public class BookRepoImplTest {
         assertNotNull(book1);
         bookRepo.deleteBook(connection, book1);
         assertNull(bookRepo.getBook(connection, id));
+        connection.close();
     }
 
     @Test

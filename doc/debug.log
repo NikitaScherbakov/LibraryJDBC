@@ -4,3 +4,6 @@
 [0415/130955.269:ERROR:crash_report_database_win.cc(563)] CreateDirectory C:\Program Files (x86)\Footper\: Отказано в доступе. (0x5)
 [0415/130955.269:ERROR:registration_protocol_win.cc(83)] TransactNamedPipe: Канал был закрыт. (0x6D)
 [0415/130955.269:ERROR:crash_report_database_win.cc(563)] CreateDirectory C:\Program Files (x86)\Footper\: Отказано в доступе. (0x5)
+[0422/111820.718:ERROR:crash_report_database_win.cc(563)] CreateDirectory C:\Program Files (x86)\Footper\: Отказано в доступе. (0x5)
+[0422/111820.736:ERROR:registration_protocol_win.cc(83)] TransactNamedPipe: Канал был закрыт. (0x6D)
+[0422/111820.737:ERROR:crash_report_database_win.cc(563)] CreateDirectory C:\Program Files (x86)\Footper\: Отказано в доступе. (0x5)
