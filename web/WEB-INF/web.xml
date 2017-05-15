@@ -6,6 +6,55 @@
          id="WebApp_ID" version="3.1">
     <display-name>Books Management Web Application</display-name>
 
+    <welcome-file-list>
+        <welcome-file>/login.jsp</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>VKServlet</servlet-name>
+        <servlet-class>oAuth.servlet.VKServlet</servlet-class>
+        <init-param>
+            <param-name>clientId</param-name>
+            <param-value>5994947</param-value>
+        </init-param>
+        <init-param>
+            <param-name>clientSecret</param-name>
+            <param-value>ymooNhl6dUB1h2ycg8TC</param-value>
+        </init-param>
+        <init-param>
+            <param-name>redirectUri</param-name>
+            <param-value>http://localhost:8080/vk/oauth</param-value>
+        </init-param>
+        <init-param>
+            <param-name>environment</param-name>
+            <param-value>https://oauth.vk.com/</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>FacebookServlet</servlet-name>
+        <servlet-class>oAuth.servlet.FacebookServlet</servlet-class>
+        <init-param>
+            <param-name>clientId</param-name>
+            <param-value>219353761885729</param-value>
+        </init-param>
+        <init-param>
+            <param-name>clientSecret</param-name>
+            <param-value>386b97df81c2ad04c616559788ea4364</param-value>
+        </init-param>
+        <init-param>
+            <param-name>redirectUri</param-name>
+            <param-value>http://localhost:8080/fb/oauth</param-value>
+        </init-param>
+        <init-param>
+            <param-name>authUrl</param-name>
+            <param-value>https://www.facebook.com</param-value>
+        </init-param>
+        <init-param>
+            <param-name>tokenUrl</param-name>
+            <param-value>https://graph.facebook.com</param-value>
+        </init-param>
+    </servlet>
+
     <context-param>
         <param-name>jdbcURL</param-name>
         <param-value>jdbc:mysql://localhost:3306/library</param-value>
@@ -39,4 +88,7 @@
         <servlet-name>ControllerServlet</servlet-name>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
+    <session-config>
+        <session-timeout>10</session-timeout>
+    </session-config>
 </web-app>

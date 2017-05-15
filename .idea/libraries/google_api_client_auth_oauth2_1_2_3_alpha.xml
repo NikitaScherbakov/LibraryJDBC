@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="google-api-client-auth-oauth2-1.2.3-alpha">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/google-api-client-auth-oauth2-1.2.3-alpha.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

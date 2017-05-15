@@ -5,16 +5,31 @@
   <title>Library Application</title>
 </head>
 <body>
+
+            <c:if test="${isAuthorized}">
+                <div class="nav-link">Email: <c:out value="${userName}"/></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </c:if>
+            <c:if test="${!isAuthorized}">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            </c:if>
+        </ul>
+    </div>
+</nav>
 <%--TODO: fix canter tag--%>
 <center>
   <h1>Library</h1>
   <h2>
       <div itemscope itemtype="http://schema.org/AddAction">
-          <a href="${pageContext.request.contextPath}/new" itemprop = "url">Add New Book</a>
+          <c:if test="${isAuthorized}"><a itemtype="http://schema.org/AddAction" href="${pageContext.request.contextPath}/new">Add new Book</a></c:if>
       </div>
       &nbsp;&nbsp;&nbsp;
       <div itemscope itemtype="http://schema.org/ViewAction">
-          <a href="${pageContext.request.contextPath}/list" itemprop="url">List All Books</a>
+            <c:if test="${isAuthorized}"><a href="${pageContext.request.contextPath}/list" itemprop="url">List All Books</a></c:if>
       </div>
   </h2>
 </center>
@@ -36,11 +51,11 @@
         <td itemprop = "genre"><c:out value="${book.genre}" /></td>
         <td>
           <div itemscope itemtype="http://schema.org/UpdateAction" >
-              <a href="${pageContext.request.contextPath}/update?id=<c:out value='${book.id}' />" itemprop = "url">Edit</a>
+              <c:if test="${isAuthorized}"><a href="${pageContext.request.contextPath}/update?id=<c:out value='${book.id}' />" itemprop = "url">Edit</a></c:if>
           </div>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <div itemscope itemtype="http://schema.org/DeleteAction">
-              <a href="${pageContext.request.contextPath}/delete?id=<c:out value='${book.id}' />" itemprop = "url">Delete</a>
+              <c:if test="${isAuthorized}"><a class="close" itemscope itemtype="http://schema.org/DeleteAction" href="${pageContext.request.contextPath}/delete?id=<c:out value='${book.id}'/>" role="button">Delete</a></c:if>
           </div>
         </td>
       </tr>
@@ -49,4 +64,3 @@
 </div>
 </body>
 </html>
-
